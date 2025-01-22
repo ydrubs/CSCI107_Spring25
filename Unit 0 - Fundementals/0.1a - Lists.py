@@ -6,8 +6,10 @@ Review of Python Lists
 1) Lists are defined with square brackets []
 2) Lists can contain (most) data types including other lists
 """
-pass
-pass
+lst = ['hello', 7, 3.5, True, ['red', 'green', 'blue']]
+# print(lst)
+
+# print(type(lst))
 
 
 """
@@ -15,72 +17,87 @@ pass
 2) The first element in the list is index zero
 3) The last element can be access with the -1 index
 """
-pass
-pass
-pass
-
+# print(lst[0])
+# print(lst[4])
+# print(lst[-1])
 
 """
 You can check an element data-type of data with type()
 """
-pass
-pass
-pass
+# print(type(lst[1]))
+# print(type(lst[2]))
+# print(type(lst[3]))
 
 
 
 """
 Accessing an index that does not exist will given an index error
 """
-pass
-pass #This fails becasue the len commans starts at 1 so will return one more item than the list index holds
+# print(lst[5])
+# print(len(lst))# How long is a list
+
+# print(lst[len(lst)]) #This fails becasue the len commans starts at 1 so will return one more item than the list index holds
 
 
 
 """
 A list holding other lists can be accessed using a 2-dimensional list
 """
-pass #THis is the inner list from above
-pass #The first element in that list
-
+# print(lst[4]) #THis is the inner list from above
+# print(lst[4][0]) #The first element in that list
+#
+# print(len(lst[4]))
 
 """
 You can also use slicing on a list like you can with strings
 """
-pass #original list
-pass #Elements one to 3
-pass #Elements 0 to 1
-pass #Every other element
+# print(lst) #original list
+# print(lst[1:4]) #Elements one to 3
+# print(lst[:2]) #Elements 0 to 1
+# print(lst[::2]) #Every other element
+#
+# print(lst[::-1])
+
+# new_lst = lst[::2]
+# inner_list = lst[4][::2]
+# print(new_lst)
+# print(inner_list)
+# master_list = new_lst+inner_list
+# print(master_list)
 
 
 """
 You can add elements to a list by specifying the index they should be added into using bracket-notation
 The element replaces the element currently in that position
 """
-pass
 
-pass #Replaces the int 2 in the lst
-pass#Replaces the inner list
-pass
+#
+# lst[1] = 'Goodbye' #Replaces the int 2 in the lst
+# print(lst)
+# lst[-1] = True #Replaces the inner list
+# print(lst)
 
 
 """
 lists can be combined using '+'
 """
-#light_colors = ['yellow', 'white', 'pink']
-#dark_colors = ['black', 'blue', 'purple']
+light_colors = ['yellow', 'white', 'pink']
+dark_colors = ['black', 'blue', 'purple']
 
-pass
+all_colors = light_colors + dark_colors
 
-pass
+print(all_colors)
 
 """
 Items can be added to the end of a list using the .append method
 """
-pass
-pass
+all_colors.append('red')
+print(all_colors)
+all_colors.append('grey')
+print(all_colors)
 
-pass
+all_colors.insert(1, 'aquamarine')
+print(all_colors)
 
 """
 The insert method can also add items to a list by putting it at the indicated index 
