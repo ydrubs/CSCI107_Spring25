@@ -44,6 +44,8 @@ def is_even(n):
     if n%2 == 0:
         return n
 
+
+# Notice, we call is_even() inside the list comprehension with the elements from the first list passed as an argument
 evens = [i for i in n if is_even(i)]
 print(evens)
 
