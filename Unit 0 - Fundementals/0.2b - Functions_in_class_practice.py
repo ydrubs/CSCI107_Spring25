@@ -15,16 +15,31 @@ to seperate string <string> into a list using a <split_character> as a seperator
 
 """
 
+"""
+Strategy:
+1) Check if there are exactly 2 '-' in the number
+2) THEN check if the number of digits in each part of the number is 3,3 and 4
+3) THEN check if all parts of the number are numeric
+"""
+def valid_digits(lst : list[str]):
+    if len(lst[0]) == 3 and len(lst[1]) == 3 and len(lst[2]) == 4:
+
+        for n in lst:
+            if not n.isnumeric():
+                return False
+        return True
+
+    return False
 
 def valid_phone_number(number: str):
-    pass
+    if number.count('-') == 2:
+        digit_lst = number.split('-')
+        check = valid_digits(digit_lst)
+        return check # either true or false
+
+    return False
 
 
-phone_number = '555-555-5555'
+phone_number = '555 - 555-5555'
 valid = valid_phone_number(phone_number)
 print(valid)
-
-
-
-
-
