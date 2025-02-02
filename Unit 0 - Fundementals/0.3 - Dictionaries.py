@@ -1,26 +1,26 @@
-##Slide 3
+##Slide 2
 people = {'Jon': 'Lawyer', 'Susan': 'Programmer', 'Robert': 'Bank Manager', 'Tanya': 'Engineer'}
 
 
-##SLide 4
+##SLide 3
 # pass #This will give an error because dictionaries are not ordered (can't access by index)
 
 
 # people = {'Jon': 'Lawyer', 'Susan': 'Programmer', 'Robert': 'Bank Manager', 'Tanya': 'Engineer', 'Jon':'Teacher'}
 # print(people)
 
-##Slide 5
+##Slide 4
 # fords = {'Ford': 'Mustang', 'Ford': 'Fusion', 'Ford': 'F150', }
 # print(fords)
 
-##Slide 6
-# import faker
-#
-# fake_id = faker.Faker() #Genearte a fake_id
-# profile = dict(fake_id.profile()) #Get a profile information from the fake id data set
-# print(profile)
+##Slide 5
+# import pass
 
-##Slide 7
+# pass #Genearte a fake_id
+# pass #Get a profile information from the fake id data set
+# pass
+
+##Slide 6
 # print(pass) ##Access the value corresponding to a key
 # print(pass) #Gives an error because age is not a key in the dictionary
 
@@ -28,12 +28,12 @@ people = {'Jon': 'Lawyer', 'Susan': 'Programmer', 'Robert': 'Bank Manager', 'Tan
 # print(pass)
 
 
-##Slide 8
+##Slide 7
 # print(pass)
 # print(pass)
 # print(pass)
 
-##Slide 9
+##Slide 8
 #Loop all the keys
 
 
@@ -47,7 +47,7 @@ people = {'Jon': 'Lawyer', 'Susan': 'Programmer', 'Robert': 'Bank Manager', 'Tan
 
 
 
-##Slide 10
+##Slide 9
 #Add entries to a dictionary
 
 
@@ -58,17 +58,17 @@ people = {'Jon': 'Lawyer', 'Susan': 'Programmer', 'Robert': 'Bank Manager', 'Tan
 
 
 
-##Slide 11 - Your turn
+##Slide 10 - Your turn
 # me = {}
 # me['name'] = 'my_name'
 
 
-##Slide 12
+##Slide 11
 #Given a list of classes and a list of grades create a dictionary that links the data together
-courses = ['Trigonometry', 'Physics', 'Programming', 'English 2']
-grades = [85, 94, 98, 80]
+# courses = ['Trigonometry', 'Physics', 'Programming', 'English 2']
+# grades = [85, 94, 98, 80]
 
-gradebook = {}
+# gradebook = {}
 
 ##Loop through the index of each course and associate the course as the key at that index to the grade as the value at the same index to the gradebook
 
@@ -82,22 +82,27 @@ gradebook = {}
 
 
 
-##Slide 13
-my_string = 'Hello, how are you'
+##Slide 12
+# my_string = 'Hello, how are you'
 
 
 
-##Slide 14 - Practice 1
+##Slide 13 - Practice 1
 """Your task:Create a new dictionary that removes ‘ssn’, ‘blood_group’, and ‘birthdate’ from the previous dictionary and moves 
 it into the new dictionary. Write the new dictionary into a variable called ‘private_data’
 """
-# profile = {'job': 'Clinical embryologist', 'company': 'Garcia and Sons', 'ssn': '101-48-3433', 'residence': '115 White Field Suite 854\nPort Josephmouth, NC 77328', 'current_location': (-18.7254755, -86.461244), 'blood_group': 'A-', 'website': ['https://wade-williams.com/', 'http://flores.com/'], 'username': 'arroyosusan', 'name': 'Donna Gonzalez', 'sex': 'F', 'address': '8086 Warner Inlet Suite 223 New Jack, WI 37965', 'mail': 'milesjessica@yahoo.com', 'birthdate': (1922, 1, 30)}
-# print(profile)
+profile = {'job': 'Clinical embryologist', 'company': 'Garcia and Sons', 'ssn': '101-48-3433',
+           'residence': '115 White Field Suite 854 Port Josephmouth, NC 77328',
+           'current_location': (-18.7254755, -86.461244), 'blood_group': 'A-',
+           'website': ['https://wade-williams.com/', 'http://flores.com/'], 'username': 'arroyosusan',
+           'name': 'Donna Gonzalez', 'sex': 'F', 'address': '8086 Warner Inlet Suite 223 New Jack, WI 37965',
+           'mail': 'milesjessica@yahoo.com', 'birthdate': (1922, 1, 30)}
+print(profile)
 
 
 
 
-##Slide 15 - Practice 2
+##Slide 14 - Practice 2
 '''Your Task: Create a new dictionary that contains only the dictionary entries that are greater then 50.  
 Start with the code below that generates a random numbers between 1 and 100 for every letter of the alphabet.
 Then write a script that creates a new dictionary with key-value that have the value data greater then 50.'''
