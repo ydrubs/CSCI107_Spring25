@@ -30,6 +30,9 @@ Powerpoint Lesson: 0.4 - Exception Handling
 
 
 ## Slide 8 ##
+"""
+Opening a non-existant file
+"""
 # try:
 #     with open("nonexistent_file.txt", "r") as file:
 #         content = file.read()
@@ -41,6 +44,7 @@ Powerpoint Lesson: 0.4 - Exception Handling
 
 
 ## Slide 9 ##
+## General Exception Handling
 # try:
 #     num = int(input("Enter a number: "))
 #     print(10 / num)
@@ -51,18 +55,19 @@ Powerpoint Lesson: 0.4 - Exception Handling
 
 
 ## Slide 10 ##
+## Specific Exception Handling
 # try:
 #     num = int(input("Enter a number: "))
 #     print(10 / num)
 #
-# except ZeroDivisionError:
+# except pass:
 #     print("You can't divide by zero!")
 #
-# except ValueError:
+# except pass:
 #     print("Invalid input! Please enter a number.")
 #
 #
-# except Exception:
+# except pass:
 #     print("Well now you've really screwed things up")
 
 
@@ -71,10 +76,10 @@ Powerpoint Lesson: 0.4 - Exception Handling
 # entered_code = input("Please enter the secret code: ")
 #
 # if entered_code == '':
-#     raise  ValueError ("Nothing was entered")
+#     pass ("Nothing was entered")
 #
 # elif entered_code != secret_code:
-#     raise PermissionError ("You have been denied entry to the super-secret website")
+#     pass ("You have been denied entry to the super-secret website")
 #
 # else:
 #     print('Access granted')
@@ -84,41 +89,28 @@ Powerpoint Lesson: 0.4 - Exception Handling
 #
 # try:
 #     if int(age) < 18:
-#         raise ValueError ("you are not old enough")
+#         pass ("you are not old enough")
 #
 #     print("Age confirmed")
 #
-# except ValueError:
+# except pass:
 #     print(f"Invalid input")
 
 
 ## Slide 13 ##
+## Re-raising/catching exceptions
 # age = input("Enter your age: ")
 #
 # try:
 #     if int(age) < 18:
-#         raise ValueError ("you are not old enough")
+#         pass ("you are not old enough")
+
+        # elif int(age) > 120:
+        # pass ("This doesn't seem right...")
 #
 #     print("Age confirmed")
 #
-# except ValueError as e:
-#     print(f"Invalid input: {e}")
+# pass:
+#     print(f"Invalid input: pass")
 
 
-## Slide 15 ##
-# try:
-#     file = open("example.txt", "r") # Attempt to open the file
-#     content = file.read()  # Process the file content
-#
-# except Exception:
-#     print("File does not exist it has been created.")
-#     file = open("example.txt", "w")
-#
-# else:
-#     # Execute this block if no exceptions occurred
-#     print("File content:")
-#     print(content)
-#
-# finally: # Runs regardless of wheter an exception occured
-#     print("Closing file...")
-#     file.close()
