@@ -21,25 +21,27 @@ Powerpoint Lesson: 0.4 - Exception Handling
 
 ## Slide 7 ##
 # try:
-#     pass
+#     result = 10/0
 #     # Code that might raise an exception  (but runs if there is no exception)
 #
 # except Exception:
-#     pass
+#     print("You can't divide by zero")
 #     # Code to handle the specific exception if it arises
+
+# print("more code, yay")
 
 
 ## Slide 8 ##
 """
 Opening a non-existant file
 """
-# try:
-#     with open("nonexistent_file.txt", "r") as file:
-#         content = file.read()
-#         print(content)
-#
-# except Exception:
-#     print("Error: The file was not found. Please check the file name and try again.")
+try:
+    with open("nonexistent_file.txt", "r") as file:
+        content = file.read()
+        print(content)
+
+except Exception:
+    print("Error: The file was not found. Please check the file name and try again.")
 
 
 
