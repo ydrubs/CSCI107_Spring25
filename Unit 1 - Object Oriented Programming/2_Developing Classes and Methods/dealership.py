@@ -25,48 +25,47 @@ This is the code that implements the Car class from the modules:
 
 
 #######################################
-from vehicle4 import Car
-car1 = Car('Toyota', 'Camry', 'Purple', 37000, 29000)
+# from vehicle4 import Car
+# car1 = Car('Toyota', 'Camry', 'Purple', 37000, 29000)
+# # print(car1.__price)
+#
+# # print(car1.__price)
+#
+# car1.__price = 900 # Creates a new attribute DOES NOT change the __price
 # print(car1.__price)
-
-# print(car1.__price)
-
-car1.__price = 900 # Creates a new attribute DOES NOT change the __price
-print(car1.__price)
-print(dir(car1))
-
-print(car1._Car__price)
-print(car1._Car__dealer_price)
-
-car1._Car__price = 20000
-print(car1._Car__price)
-
-p = car1.get_price()
-print("here", p)
-
-car1.set_price(30000)
-print(car1.get_price())
-
-car1.set_price(28999)
-
-
+# print(dir(car1))
+#
+# print(car1._Car__price)
+# print(car1._Car__dealer_price)
+#
+# car1._Car__price = 20000
+# print(car1._Car__price)
+#
 
 
 
 #######################################
 ##Getter / Setter
 
-
-
-
-
+# p = car1.get_price()
+# print("here", p)
+#
+# car1.set_price(30000)
+# print(car1.get_price())
+#
+# car1.set_price(28999)
 
 
 ###########################################
-# from vehicle5 import Car
+from vehicle5 import Car
+car1 = Car('Toyota', 'Camry', 'Purple', 37000, 29000)
+p = car1.price
+print(p)
 
+car1.price = 30000
+car1.price = 28000
 
-
+print(car1.price)
 
 
 ###########################################
