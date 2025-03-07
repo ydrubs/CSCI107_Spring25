@@ -5,6 +5,8 @@ Property decorators allow method calls to be made using attributes rather than t
     This, in-turn, makes it easier to use on the end-user side and allows for better control over how method are used.
 """
 class Car:
+    discount_percentage = 0
+    _instances = []
     def __init__(self, make, model, color, price, dealer_price, sold = False, ):
         self.make = make
         self.model = model
@@ -18,6 +20,8 @@ class Car:
         self.on_lot = False
         self.numb_of_test_drives = 0
         self.__dealer_price = dealer_price
+
+        Car._instances.append(self)
 
 
         self.greeting()
@@ -68,6 +72,16 @@ class Car:
         self.on_lot = availability[0]
         self.sold = availability[1]
 
+    @classmethod
+    def apply_global_discount(cls, percentage):
+        """Applies a discount to all stored car instances"""
+        cls.discount_percentage = percentage
+        print(f'A {percentage}% discount has been applied to ALL cars.')
+
+        for car in cls._instances:
+            discount_amount = car.__price *  (cls.discount_percentage/100)
+            car.__price = car.__price - discount_amount # Update the stored price
+
     # def get_price(self):
     #     """See the price the car sells for"""
     #     print('Thanks for your inquiry, the price is:')
@@ -106,10 +120,23 @@ Suppose you want a property called 'available' that allows the dealership to kee
 
 """
 if __name__ == '__main__':
-    car1 = Car('Toyota', 'Camry', 'Purple', 37000, 29000)
+    car1 = Car('Toyota', 'Camry', 'Purple', 20000, 10000)
+    car2 = Car('Honda', 'Accord', 'blue', 20000, 15000)
+    car3 = Car("Chevy", "Corvette", 'white', 75000, 60000)
 
-    is_here = car1.available
-    print(is_here)
+    car1.apply_global_discount(50)
+    print(car1.price, car2.price, car3.price) #SHOULD all be 10% off
+    car1.apply_global_discount(50)
+    print(car1.price, car2.price, car3.price) #SHOULD all be 10% off
 
-    car1.available = (True, False)
-    print(car1.available)
+    Car.apply_global_discount(10)
+    print(car1.price, car2.price, car3.price)
+
+    # is_here = car1.available
+    # print(is_here)
+    #
+    # car1.available = (True, False)
+    # print(car1.available)
+    #
+    # print(car1.price)
+    # car1.price = 40000
