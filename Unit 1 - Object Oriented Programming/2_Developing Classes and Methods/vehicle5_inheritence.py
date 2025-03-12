@@ -136,8 +136,4 @@ if __name__=='__main__':
 
     my_car2.give_discount(10)
     print(my_car2.give_discount(50))
-
     print(my_car.give_discount(10))
-
-
-

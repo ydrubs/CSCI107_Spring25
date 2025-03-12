@@ -125,12 +125,12 @@ if __name__ == '__main__':
     car3 = Car("Chevy", "Corvette", 'white', 75000, 60000)
 
     car1.apply_global_discount(50)
-    print(car1.price, car2.price, car3.price) #SHOULD all be 10% off
-    car1.apply_global_discount(50)
-    print(car1.price, car2.price, car3.price) #SHOULD all be 10% off
-
-    Car.apply_global_discount(10)
-    print(car1.price, car2.price, car3.price)
+    # print(car1.price, car2.price, car3.price) #SHOULD all be 10% off
+    # car1.apply_global_discount(50)
+    # print(car1.price, car2.price, car3.price) #SHOULD all be 10% off
+    #
+    # Car.apply_global_discount(10)
+    # print(car1.price, car2.price, car3.price)
 
     # is_here = car1.available
     # print(is_here)
@@ -140,3 +140,6 @@ if __name__ == '__main__':
     #
     # print(car1.price)
     # car1.price = 40000
+    print(car1)
+    print(car1.make, car1.model)
+
