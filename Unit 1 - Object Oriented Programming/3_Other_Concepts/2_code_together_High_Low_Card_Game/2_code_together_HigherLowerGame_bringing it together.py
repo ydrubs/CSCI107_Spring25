@@ -99,15 +99,15 @@ class Game:
         pass # Continue drawing cards as long as their are cards to draw
             pass # Checks if the deck is empty. If so, the game ends.
                 print("No more cards in the deck. Game over!")
-                pass
+                pass # This ends the loop, essentially ending the game
 
             guess = input("Will the next card be higher or lower? (h/l): ").strip().lower()
-            if guess not in ["h", "l"]:
+            pass # Check for a valid input
                 print("Invalid input. Please type 'h' for higher or 'l' for lower.")
-                continue
+                pass # just ask again (run the while loop again)
 
-            next_card = self.deck.getCard()
-            next_card.reveal()
+            pass # Draw the next card
+            pass # ... and reveal it
             print(f"The next card is: {next_card}")
 
             # Check the card
@@ -128,8 +128,8 @@ class Game:
 
 
 if __name__ == "__main__":
-    game = Game() # Create a game object
-    game.start_game() # Start the Game!
+    pass # Create a game object
+    pass # Start the Game!
 
 """
 Modification ideas - 
