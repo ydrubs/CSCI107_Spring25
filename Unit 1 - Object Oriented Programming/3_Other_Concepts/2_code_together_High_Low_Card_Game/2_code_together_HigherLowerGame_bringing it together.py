@@ -8,30 +8,35 @@ Implement three classes:
 
 import random
 
-class pass:
-    def __init__pass:
+class Card:
+    def __init__(self, window, rank, suit, value):
         """
         This defines the Card class, which represents a single card in the deck with its rank, suit, and value.
         The `window` parameter can be used for GUI integration, but we won't use it here.
         """
-        pass  # Placeholder for potential GUI or display integration
+        self.window = window
+        self.rank = rank
+        self.suit = suit
+        self.value = value
+        self.is_concealed = True
 
-
-
-    def pass:
+    def __str__(self):
         """
         :return: Reference to card object as a suit and rank as long as card is 'revealed'
         """
-        pass
+        if self.is_concealed == False:
+            return f"{self.rank} of {self.suit}"
+        else:
+            return "No Cheating!"
 
 
-    def pass:
+    def reveal(self):
         """This method reveals the card by setting `is_concealed` to False."""
-        pass
+        self.is_concealed = False
 
-    def pass:
+    def conseal(self):
         """This method conceals the card by setting `is_concealed` to True"""
-        pass
+        self.is_concealed = True
 
 
 class Deck:
@@ -48,28 +53,32 @@ class Deck:
                      '6': 6, '7': 7, '8': 8, '9': 9, '10': 10,
                      'Jack': 11, 'Queen': 12, 'King': 13}
 
-    def pass:
+
+
+
+    def __init__(self, window, rankValueDict = STANDARD_DICT):
         # The constructor initializes the deck by creating cards for each suit and rank using the given rank-value dictionary.
 
-        pass # The startingDeckList holds the original un-shuffled deck, which allows resetting the deck if needed.
-        pass # The playingDeckList is the active deck used during gameplay, which can be shuffled and modified
+        self.starting_deck_list = [] # The startingDeckList holds the original un-shuffled deck, which allows resetting the deck if needed.
+        self.playing_deck_list = [] # The playingDeckList is the active deck used during gameplay, which can be shuffled and modified
 
         # Loop through the suit tuples which are class variables
-        for pass
+        for suit in Deck.SUIT_TUPLE:
 
             # Loop through the card ranks, this gets passed into the initializer, so gets aliased to the STANDARD_DICT variable
-            for pass
-                pass # Create an instance of each card using the Card class
-                pass # Add the created instance to the list
-        pass # Call the shuffle method to shuffle deck
+            for rank, value in rankValueDict:
+                oCard = Card(window, rank, suit, value) # Create an instance of each card using the Card class
+                self.starting_deck_list.append(oCard) # Add the created instance to the list
 
-    def pass:
+        self.shuffle() # Call the shuffle method to shuffle deck
+
+    def shuffle(self):
         """
         This method shuffles the deck and ensures all cards are concealed before shuffling.
         """
-        pass # The .copy method copies a list
+        self.playing_deck_list = self.starting_deck_list.copy() # The .copy method copies a list
 
-        pass
+
 
     def pass:
         """
