@@ -54,8 +54,6 @@ class Deck:
                      'Jack': 11, 'Queen': 12, 'King': 13}
 
 
-
-
     def __init__(self, window, rankValueDict = STANDARD_DICT):
         # The constructor initializes the deck by creating cards for each suit and rank using the given rank-value dictionary.
 
@@ -66,7 +64,7 @@ class Deck:
         for suit in Deck.SUIT_TUPLE:
 
             # Loop through the card ranks, this gets passed into the initializer, so gets aliased to the STANDARD_DICT variable
-            for rank, value in rankValueDict:
+            for rank, value in rankValueDict.items():
                 oCard = Card(window, rank, suit, value) # Create an instance of each card using the Card class
                 self.starting_deck_list.append(oCard) # Add the created instance to the list
 
@@ -78,67 +76,74 @@ class Deck:
         """
         self.playing_deck_list = self.starting_deck_list.copy() # The .copy method copies a list
 
+        for oCard in self.playing_deck_list:
+            oCard.conseal()
 
+        random.shuffle(self.playing_deck_list)
 
-    def pass:
+    def getCard(self):
         """
         This method removes and returns the top card from the playing deck. Raises an error if no cards are left.
         """
-        pass
+        if len(self.playing_deck_list) == 0:
+            raise IndexError('No more cards')
+        return self.playing_deck_list.pop()
 
-    def pass:
+    def returnCardToDeck(self, oCard):
         # This method adds a card back to the top of the playing deck.
-        pass
+        self.playing_deck_list.insert(0, oCard)
 
 
 class Game:
-    def pass:
+    def __init__(self):
         """
         The Game class handles the game logic, including initializing the deck and managing the score.
         """
-        pass  # Pass "None" for window as we are not using GUI
-        pass # Keep track of the score
-        pass # Get the top card
-       pass # ... and reveal it
+        self.deck =  Deck(None) # Pass "None" for window as we are not using GUI
+        self.score = 0 # Keep track of the score
+        self.current_card = self.deck.getCard() # Get the top card
+        self.current_card.reveal() # ... and reveal it
 
-    def pass:
+    def start_game(self):
         print("Welcome to the Higher or Lower Card Game!")
         print(f"The first card is: {self.current_card}\n")
 
-        pass # Continue drawing cards as long as their are cards to draw
-            pass # Checks if the deck is empty. If so, the game ends.
+        while True: # Continue drawing cards as long as there are cards to draw
+            if len(self.deck.playing_deck_list) == 0:  # Checks if the deck is empty. If so, the game ends.
                 print("No more cards in the deck. Game over!")
-                pass # This ends the loop, essentially ending the game
+                break # This ends the loop, essentially ending the game
 
             guess = input("Will the next card be higher or lower? (h/l): ").strip().lower()
-            pass # Check for a valid input
+            if guess not in ['h', 'l']:# Check for a valid input
                 print("Invalid input. Please type 'h' for higher or 'l' for lower.")
-                pass # just ask again (run the while loop again)
+                continue # just ask again (run the while loop again)
 
-            pass # Draw the next card
-            pass # ... and reveal it
+            next_card =  self.deck.getCard() # Draw the next card
+            next_card.reveal() # ... and reveal it
             print(f"The next card is: {next_card}")
 
             # Check the card
-            pass
+            if (guess == 'h' and next_card.value > self.current_card.value) or \
+                    (guess == 'l' and next_card.value < self.current_card.value):
 
                 # Increases the score by 1 for a correct guess.
-                pass
+                self.score +=1
                 print("Correct guess! Your score is now:", self.score, '\n')
-            pass
+
+            else:
                 # Decreases the score by 1 for an incorrect guess.
-                pass
+                self.score -=1
                 print("Wrong guess. Your score is now:", self.score, '\n')
 
-            pass #Get ready to draw the next card
+            self.current_card = next_card #Get ready to draw the next card
 
         print(f"Final score: {self.score}")
         print("Thanks for playing!")
 
 
 if __name__ == "__main__":
-    pass # Create a game object
-    pass # Start the Game!
+    game = Game() # Create a game object
+    game.start_game() # Start the Game!
 
 """
 Modification ideas - 
