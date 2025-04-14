@@ -64,10 +64,6 @@ class RectCollection:
         self.rect_collection.append(rect)
 
 
-    ##Method that adds the rectangle to the list
-    pass
-
-
 
     ##Method that changes the size of the rectangles when called
         ##Iterate through:
@@ -105,7 +101,8 @@ if __name__ == '__main__':
 
 
     ##Show our rectangle object list in raw form
-    pass
+    print(rect_container.rect_collection)
+    print(rect_container.rect_collection[0].scaler)
 
 
     turtle.done()#Update the screen
