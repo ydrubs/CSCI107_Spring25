@@ -2,8 +2,6 @@
 We create instance variables from the turtle class rather then using the generic class as in previous lessons.
 """
 import turtle
-import math
-speed = 5
 
 ## Create an instance of the turtle screen object
 window = turtle.Screen()
@@ -88,8 +86,10 @@ def increase_speed():
     print(f"Speed increased to {speed}")
 
 
-##Create a keypress listener and assosiate with a key
-# Note that these methods come from the turtle class itself rather then instances of individuak turtles
+##Create a keypress listener and associate with a key
+# Note that these methods come from the turtle class itself rather then instances of individual turtles
+speed = 5
+
 turtle.listen()
 turtle.onkey(up, 'Up')
 turtle.onkey(down, 'Down')

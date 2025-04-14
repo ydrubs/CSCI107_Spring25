@@ -1,5 +1,6 @@
 import turtle
 import random
+import math
 
 
 ##This class creates and draws individua rectangles
@@ -7,18 +8,39 @@ import random
 # #We also pass turtle.Turtle into the class in order to allow us to use turtle methods on the objects created with the class
         #...otherwise we would not be abe to, unless we define turtle in the class itself
 
-class
+class RectBody(turtle.Turtle):
+    def __init__(self, rect_collection, scaler, pos = (0,0)):
+        super().__init__()
 
-        pass#initialize turtle
-        pass#Allows the size of the rectangle to be individually changed
-        pass#Don't draw until ready
-        pass#set the rectangle objects position
+        self.x = pos[0]
+        self.y = pos[1]
 
-        pass#call the add method of the rectangle collection object in order to add the instance to a list
+        self.scaler = scaler # Allows the size of the rectangle to be individually changed
+        self.penup() #Don't draw until ready
+        self.goto(pos) #set the rectangle objects position
+
+        rect_collection.add_rect(self) #call the add method of the rectangle collection object in order to add the instance to a list
 
 
     ##method to draw each rectangle
-    pass
+    def draw(self):
+        self.clear()
+        self.fillcolor('green')
+        self.begin_fill()
+
+        # for _ in range(4):
+        #     self.pendown()
+        #     self.forward(20*self.scaler)
+        #     self.right(90)
+        # self.end_fill()
+
+        for i in range(200):
+            angle_rad = math.radians(i)
+            x = 100 * math.cos(math.log(3) * angle_rad) * math.sin(angle_rad)
+            y = 100 * math.cos(2.4 * angle_rad) * math.sin(angle_rad)
+
+            self.goto(x+self.x,y+self.y)
+            self.pendown()
 
 """
     Use trig for some extra funzies
@@ -29,13 +51,17 @@ class
 
 ##This is the builder class that manages the set of objects created in the above class
 ##Pass width and height of the screen as parameters
-pass
+class RectCollection:
+    def __init__(self, width, height):
 
-        pass#create the screen
-        pass#Setup screen dimensions
-        pass#Set the BG dcolor
+        self.rect_canvas = turtle.Screen() #create the screen
+        self.rect_canvas.setup(width, height) #Setup screen dimensions
+        self.rect_canvas.bgcolor('yellow') # Set the BG dcolor
 
-        pass#List to hold the rectangles
+        self.rect_collection = [] #List to hold the rectangles
+
+    def add_rect(self, rect):
+        self.rect_collection.append(rect)
 
 
     ##Method that adds the rectangle to the list
@@ -48,26 +74,34 @@ pass
         #...1) Randomly resize each rectangle
         #...2) Call the draw method for each rectangle
         #...3) Update the screen after each call to draw.
-    pass
-        pass
-             # Change the size of each rectangle object
-             # Debug info
-             # Call the draw method in the RectBody class for each object
-             # Update the screen
+    def update_all(self):
+        for rect in self.rect_collection:
+            self.rect_canvas.tracer(0)
+            rect.scaler = round(random.random()*4,1)# Change the size of each rectangle object
+            print(rect.scaler)# Debug info
+            rect.draw()# Call the draw method in the RectBody class for each object
+            self.rect_canvas.update() # Update the screen
 
 
 
 ###Create objects and test
 if __name__ == '__main__':
     # Create a screen object from the RectCollection class and individual objects from the rect_body class
-    pass
+    rect_container = RectCollection(600, 400)
+    r1 = RectBody(rect_container, 1, (-50, -50))
+    r2 = RectBody(rect_container, 2, (20, 0))
+    r3 = RectBody(rect_container, 3, (90, 50))
+    r4 = RectBody(rect_container, 4, (160, 100))
+
+    # r1.draw()
 
     ##Iterate by calling each object in the list and using its draw method
-    pass
+    for rect in rect_container.rect_collection:
+        rect.draw()
 
 
     #Call the update method from the RectCollection class
-    pass
+    rect_container.update_all()
 
 
     ##Show our rectangle object list in raw form
