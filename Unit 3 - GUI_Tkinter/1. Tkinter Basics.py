@@ -3,22 +3,22 @@ In this lesson we will look at creating a window using the Tkinter package,
 processing text, and placing page elements in a window.
 
 """
-import pass # import tkinter
-import pass # import itertools
+import tkinter as tk # import tkinter
+from itertools import cycle # import itertools
 
 
 ##Defining a window
-pass #Define the root window
-pass #Give the window screen a title
-pass #Set the size of the window, x,y offset
-pass #Don't allow window resizing (default is 1,1)
+root = tk.Tk() #Define the root window
+root.title("Demo GUI") #Give the window screen a title
+root.geometry('800x600+50+50') #Set the size of the window, x,y offset
+root.resizable(0,0) #Don't allow window resizing (default is 1,1)
 
 #Limit resize dimensions if resizing allowed
-pass
-pass
+root.minsize(200,200)
+root.maxsize(1000,1000)
 
 # set a background color
-pass # We can also use hex by combing the numbers 1-9 and AF such as '#FFAA11'
+root.config(bg = '#ABCDEF') # We can also use hex by combing the numbers 1-9 and AF such as '#FFAA11'
 
 # Some text we can use for demo purposes
 txt = ['We set sail on this new sea because there is new knowledge to be gained',
@@ -27,20 +27,20 @@ txt = ['We set sail on this new sea because there is new knowledge to be gained'
        'We choose to go to the moon in this decade and do the other things',
        "Well, space is there, and we're going to climb it"
        ]
-pass # Allows us to grab the next element from the list without keeping track of the index
+txt = cycle(txt) # Allows us to grab the next element from the list without keeping track of the index
 
 ##Create text widgets(labels)
-pass #Create a text widget in the root window
-pass #place it in the first available spot
+text1 = tk.Label(root, text = next(txt)) #Create a text widget in the root window
+text1.pack() #place it in the first available spot
 
-pass
-pass #give it top and bottom padding
+text2 = tk.Label(root, text = next(txt))
+text2.pack(pady=10) #give it top and bottom padding
 
-pass #Change font, font-size, bold, and color
-pass
+text3 = tk.Label(root, text = next(txt), font = ('Arial', 15, 'bold'), bg = 'yellow')#Change font, font-size, bold, and color
+text3.pack(pady=10)
 
-pass
-pass #Add only padding, below, add internal padding (inside the text widget), align-left
+text4 = tk.Label(root, text = next(txt), font = ('Cambria', 12, 'underline'), fg = 'blue')
+text4.pack(pady = (0,10), ipadx = 50, ipady = 10, anchor = 'w') #Add only padding, below, add internal padding (inside the text widget), align-left
 
 pass
 pass #Fill up all widget space in x-direction (could aldo do y and 'both', add some padding
@@ -86,4 +86,4 @@ label.pack()
 
 
 #Run the mainloop
-pass # This is necessary to keep the window open
+root.mainloop() # This is necessary to keep the window open
