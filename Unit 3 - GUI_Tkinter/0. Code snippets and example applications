@@ -1,0 +1,15 @@
+The website below could be a good source to learn Tkinter and burrow code from.
+
+https://github.com/ydrubs/Tkinter_Examples
+
+Directories:
+    1) Code_Snippets: Contains example code demonstrating how to set up various widgets and elements
+    2) Example Applications: Contains small programs demonstrating how Tkinter can be used.
+
+To copy the entire repository:
+    1) Open Git Bash in a (preferably) empty directory
+    2) Type ' git clone https://github.com/ydrubs/Tkinter_Examples'
+
+    3) You can copy individual files you like into the directory to using curl -o <url>
+        for example: curl -O https://github.com/ydrubs/Tkinter_Examples/blob/main/Example%20Applications/Tkinter%20Course%20-%20Simon%20Game.py
+
