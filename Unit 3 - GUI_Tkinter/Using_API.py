@@ -4,18 +4,19 @@ This shows how to use the request library to make an API call.
 The dictionary API does not require an access key.
 We can read the responce text into a variable. The responce text is a string.
 """
-# import pass # import the request library to allow us to 'ask' a URL for data
-
+# import requests # import the request library to allow us to 'ask' a URL for data
+#
 # word = input("Enter a word: ") # Allow user to enter a word for lookup
-
-# api_url = 'https://api.dictionaryapi.dev/api/v2/entries/en/{word}'.format(word=word) #call the API url formatted with the word user provided
+#
+# # api_url = 'https://api.dictionaryapi.dev/api/v2/entries/en/{word}'.format(word=word) #call the API url formatted with the word user provided
 # api_url = f'https://api.dictionaryapi.dev/api/v2/entries/en/{word}' # ...We can also use f-strings
-
-pass  #Make the request and get the response code from the server
-# print(responce)
-
-pass #If response is ok (200), print the data returned
-
+#
+# response = requests.get(api_url)  #Make the request and get the response code from the server
+# print(response)
+#
+# if  response.status_code == requests.codes.ok: #If response is ok (200), print the data returned
+#     print(response.text)
+#     print(type(response.text))
 
 """Example 2
 In this example we import the JSON library. 
@@ -23,20 +24,27 @@ JSON is a database structure that is designed to be readable by both humans and 
 
 We use JSON to turn the response into a list. This makes it easier to get the data we needed from the response results
 """
-# import requests # import requests
-# import pass # Import JSON library
+import requests # import requests
+import json # Import JSON library
 
-# word = input("Enter a word: ")
-# api_url = f'https://api.dictionaryapi.dev/api/v2/entries/en/{word}'
-# responce = requests.get(api_url)
-# if responce.status_code == requests.codes.ok:
-#     pass #Use JSON to convert data to a Python list
+word = input("Enter a word: ")
+api_url = f'https://api.dictionaryapi.dev/api/v2/entries/en/{word}'
+responce = requests.get(api_url)
+if responce.status_code == requests.codes.ok:
+    json_data = json.loads(responce.text) #Use JSON to convert data to a Python list
 
 # Some exploratory printing/debugging
-# print(json_data)
-# print(type(json_data))
+print(json_data)
+print(type(json_data))
 
-# pass #Convert to a dictionary
+data =  dict(json_data[0]) #Convert to a dictionary
+print(data)
+
+inner_data = data['meanings'][0]
+print(inner_data)
+
+definition = inner_data['definitions'][0]
+print(definition['definition'])
 
 # By examing the dictionary we see a number of dictionaries, embedded in lists, embedded in dictionaries
 # We have to try to unpack this to get to the 'definition' key/index
